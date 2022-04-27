@@ -9,8 +9,16 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="generator" content="by my self" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" 
+    src="/js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@800&display=swap" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107284492-2"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -22,6 +30,94 @@
 </head>
 
 <body>
-    工事中
-</body>
-</html>
+    <section id="body">
+        <header>
+            <div class="ja" id="language-en">English</div>
+            <div class="en" id="language-ja">日本語</div>
+        </header>
+        <h1>GUNTAMANIA.COM</h1>
+        <div class="profile-image">
+            <img src="/assets/icon_anim_x4.gif" />
+        </div>
+        <div class="main-article">
+            <h2>About ME</h2>
+            <p>Hiroki YAMADA / guntama</p>
+            <p class="ja">
+                某暗号資産取引所に勤務するモバイルエンジニア。
+                幼少期よりプログラミングに親しみ、HTMLやWindowsでのゲームプログラミングを始める。 
+                大学在学中に研究の傍らAndroidプログラミングを習得、新卒で入社した会社ではAndroid端末開発を行う。
+                その後、仮想通貨やブロックチェーン技術に出会い、現職に至る。
+            </p>
+            <p class="en">
+                I am an Android application engineer working at a company which deals with cryptocurrency exchanges. 
+                I started Android programming when I was an University student and developed a Android phone as my first career.
+            </p>
+            <h2>Contacts</h2>
+            <ul>
+                <li><img class="list-item-img" src="/assets/twitter_logo_icon.svg"><a href="https://twitter.com/guntamania">Twitter</a></li>
+                <li><img class="list-item-img" src="/assets/github_logo_icon.svg"><a href="https://github.com/guntamania">Github</a></li>
+                <li><img class="list-item-img" src="/assets/linkedin_logo_icon.svg"><a href="https://www.linkedin.com/in/guntamania/">LinkedIn</a></li>
+            </ul>
+            <h2>Skills and Interests</h2>
+            <div>Android / Kotlin / Ruby on Rails / JavaScript / flutter / Vue.js / C# / Cryptocurrency</div>
+            <h2>Works</h2>
+            <p class="ja">
+                余暇に作った制作物です。
+            </p>
+            <p class="en">
+                Works which I work in spare time.
+            </p>
+            <h3 class="ja">Lineオープンチャット検索</h3>
+            <h3 class="en">LINE Openchat Search</h3>
+            <div class="work-wrapper">
+                <div class="work-screenshot">
+                    <img class="screenshot-work" src="/assets/screen-openchat.png" />
+                </div>
+                <div class="work-description">
+                    <p><a href="https://openchat-search.com/">URL</a></p>
+                    <p>
+                        Lineのオープンチャットを検索するアプリです。
+                        共同制作し、私はRails製バックエンドおよびフロントエンドを担当しました。
+                    </p>
+                    <p class="work-technical">Ruby on Rails, Javascript, Heroku</p>
+                </div>
+            </div>
+            <h3 class="ja">精算ちゃん</h3>
+            <h3 class="en">Seisan chang</h3>
+            <div class="work-wrapper">
+                <div class="work-screenshot"><img class="screenshot-work" src="/assets/screen-seisan.png" ></div>
+                <div class="work-description">
+                    <p><a href="https://kaikei-share-app.firebaseapp.com/">URL</a></p>
+                    <p class="ja">精算や割り勘を行うアプリです。</p>
+                    <p class="en">An app to share payment information and adjust bills in friends.</p>
+                    <p class="work-technical">Vue.js, Firebase</p>
+                </div>
+            </div>
+            <h3 class="ja">UXでユーザを殴る</h3>
+            <h3 class="en">Beat with UX</h3>
+            <div class="work-wrapper">
+                <div class="work-screenshot"><img class="screenshot-work" src="/assets/screen-beatui.png" /></div>
+                
+                <div class="work-description">
+                    <p><a href="http://guntamania.com/beat-user-experience/">URL</a></p>
+                    <p class="ja">
+                        UXでユーザを殴るさまを表したインタラクティブデモです。
+                        マウスクリックでオブジェクトを射出できます。
+                        モバイルは未対応です。
+                    </p>
+                    <p class="en">
+                        An interactive demo to beat stupid users with awesome UX.
+                        Objects can be triggered to click.
+                        This demo can play with PC.
+                    </p>
+                    <p class="work-technical">Three.js</p>
+                </div>
+            </div>
+        </section>
+        
+        <canvas id="canvas"></canvas>
+
+        <div id="footer"></div>
+    </body>
+    </html>
+    
