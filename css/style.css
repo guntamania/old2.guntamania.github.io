@@ -146,7 +146,7 @@ a.no-underline {
 .work-technical {
     color: var(--secondary);
     font-size: small;
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
 #footer {
@@ -174,5 +174,11 @@ a.no-underline {
     .work-description {
         width: 60%;
         padding: 8px;
+    }
+
+    .work-technical {
+        color: var(--secondary);
+        font-size: small;
+        margin-top: 20px;
     }
 }
