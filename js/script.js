@@ -1,6 +1,7 @@
 var mode="ja";
 
 $(window).on("load", function() {
+    // 言語
     $("#language-en").on("click", function(){
         mode="en";
         updateLanguage();
@@ -10,8 +11,19 @@ $(window).on("load", function() {
         mode="ja";
         updateLanguage();
     });
+    
+    if( browserLanguage() == 'ja' ){
+        mode="ja";
+    } else {
+        mode="en";
+    }
 
     updateLanguage();
+
+    // 見た目
+    $("h1").fitText();
+
+    // 背景アニメ
     initAnim();
 });
 
@@ -28,15 +40,15 @@ function updateLanguage() {
 }
 
 var unit = 100,
-    canvasList, // キャンバスの配列
-    info = {}, // 全キャンバス共通の描画情報
-    colorList; // 各キャンバスの色情報
+canvasList, // キャンバスの配列
+info = {}, // 全キャンバス共通の描画情報
+colorList; // 各キャンバスの色情報
 
 /**
- * Init function.
- * 
- * Initialize variables and begin the animation.
- */
+* Init function.
+* 
+* Initialize variables and begin the animation.
+*/
 function initAnim() {
     info.seconds = 0;
     info.t = 0;
@@ -70,17 +82,17 @@ function update() {
 }
 
 /**
- * Draw animation function.
- * 
- * This function draws one frame of the animation, waits 20ms, and then calls
- * itself again.
- */
+* Draw animation function.
+* 
+* This function draws one frame of the animation, waits 20ms, and then calls
+* itself again.
+*/
 function draw(canvas, color) {
     // 対象のcanvasのコンテキストを取得
     var context = canvas.contextCache;
     // キャンバスの描画をクリア
     context.clearRect(0, 0, canvas.width, canvas.height);
-
+    
     //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
     drawWave(canvas, color[0], 1, 2, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
 }
@@ -102,26 +114,43 @@ function drawWave(canvas, color, alpha, zoom, delay) {
 }
 
 /**
- * Function to draw sine
- * 
- * The sine curve is drawn in 10px segments starting at the origin. 
- * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
- */
+* Function to draw sine
+* 
+* The sine curve is drawn in 10px segments starting at the origin. 
+* drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
+*/
 function drawSine(canvas, t, zoom, delay) {
     var xAxis = Math.floor(canvas.height/2);
     var yAxis = 0;
-    var yOffset = -0.23 * canvas.height;
+    var yOffset = -0.25 * canvas.height;
     var context = canvas.contextCache;
     // Set the initial x and y, starting at 0,0 and translating to the origin on
     // the canvas.
     var x = t; //時間を横の位置とする
     var y = Math.sin(x)/zoom;
     context.moveTo(yAxis, unit*y+xAxis + yOffset); //スタート位置にパスを置く
-
+    
     // Loop to draw segments (横幅の分、波を描画)
     for (i = yAxis; i <= canvas.width + 10; i += 10) {
         x = t+(-yAxis+i)/unit/zoom;
         y = Math.sin(x - delay)/3;
         context.lineTo(i, unit*y+xAxis+ yOffset);
+    }
+}
+
+var browserLanguage = function() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    try {
+        // chrome
+        if( ua.indexOf( 'chrome' ) != -1 ){
+            return ( navigator.languages[0] || navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0,2);
+        }
+        // それ以外
+        else{
+            return ( navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0,2);
+        }
+    }
+    catch( e ) {
+        return undefined;
     }
 }
