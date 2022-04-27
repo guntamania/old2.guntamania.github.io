@@ -17,12 +17,12 @@ $(window).on("load", function() {
     } else {
         mode="en";
     }
-
+    
     updateLanguage();
-
+    
     // 見た目
     $("h1").fitText();
-
+    
     // 背景アニメ
     initAnim();
 });
@@ -56,7 +56,8 @@ function initAnim() {
     colorList = [];
     // canvas1個めの色指定
     canvasList.push(document.getElementById("canvas"));
-    colorList.push(['#fefeee']);
+    const color = rgbtohex($("#body").css("background-color"));
+    colorList.push([color]);
     // 各キャンバスの初期化
     for(var canvasIndex in canvasList) {
         var canvas = canvasList[canvasIndex];
@@ -153,4 +154,12 @@ var browserLanguage = function() {
     catch( e ) {
         return undefined;
     }
+}
+
+function rgbtohex(orig){
+    var rgb = orig.replace(/\s/g,'').match(/^rgba?\((\d+),(\d+),(\d+)/i);
+    return (rgb && rgb.length === 4) ? "#" +
+    ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+    ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : orig;
 }

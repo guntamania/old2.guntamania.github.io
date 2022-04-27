@@ -13,12 +13,27 @@
 /* As hex codes */
 :root {
     --main-black: #1A1A1A;
-    --primary: 	#404040;
+    --title-text: #1A1A1A;
+    --primary-text: #404040;
     --secondary: #808080;
     --accent: #426aac;
     --main-bg: #faf02f;
     --article-bg: #fefeee;
+    --link-text: #1a1aaa;
 }
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-black: #FAFAFA;
+        --primary-text: 	#f0f0f0;
+        --secondary: #808080;
+        --accent: #426aac;
+        --main-bg: #faf02f;
+        --article-bg: #000000;
+        --link-text: #8888ff;
+    }
+  }
 
 h1,h2 {
     font-family: 'Jost', sans-serif;
@@ -27,6 +42,7 @@ h1,h2 {
 h1 {
     font-size: 24pt;
     margin-bottom: 8px;
+    color: var(--title-text);
 }
 
 h2 {
@@ -40,6 +56,10 @@ h3 {
     margin-bottom: 8px;
 }
 
+a, a:visited {
+    color: var(--link-text);
+}
+
 body {
     background-color: var(--main-bg); /* 全体の背景色 */
     color: var(--main-black);
@@ -47,7 +67,7 @@ body {
 
 p {
     line-height: 1.7;
-    color: var(--primary);
+    color: var(--primary-text);
     font-family: YuGothic,游ゴシック,Meiryo,メイリオ,Hiragino Kaku Gothic Pro,ヒラギノ角ゴシック,sans-serif;
 }
 
@@ -61,6 +81,7 @@ header {
     display: block;
     float: right;
     cursor: pointer;
+    color: var(--title-text);
 }
 
 li {
@@ -85,6 +106,7 @@ li {
     height: 1.0em;
     width: 1.0em;
     margin-right: 8px;
+    fill: var(--primary-text);
 }
 
 img.screenshot-work {
@@ -94,6 +116,17 @@ img.screenshot-work {
     max-height:100%;
     margin: 0 auto;
     display: block;
+}
+
+.icon-socialmedia {
+    width: 24px;
+    height: 24px;
+    margin: 0 8px;
+    fill: var(--primary-text);
+}
+
+a.no-underline {
+    text-decoration: none;
 }
 
 .work-wrapper {
