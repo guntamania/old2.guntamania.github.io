@@ -162,6 +162,9 @@ a.no-underline {
         margin-top: 16px;
         margin-bottom: 16px;
     }
+    h3 {
+        margin-top: 18px;
+    }
     .work-wrapper {
         display: flex;
         flex-wrap: wrap;
